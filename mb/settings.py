@@ -14,8 +14,7 @@ from pathlib import Path
 import django_heroku
 import dj_database_url
 from decouple import config
-import cloudinary
-import cloudinary_storage
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary',
-    'cloudinary_storage',
+  
 ]
 
 MIDDLEWARE = [
@@ -129,11 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dbosid9zh',
-    'API_KEY': '923259242792948',
-    'API_SECRET': 'BrZpSVvJjANd8ymexETUbfln1tc',
-}
+
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
@@ -145,7 +139,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
