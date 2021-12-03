@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Hero Section Begin -->
+<section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__items set-bg" data-setbg="{% static 'mbapp/img/hero/hero-1.png' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Summer Collection</h6>
+                            <h2>Fall - Winter Collections 2030</h2>
+                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                commitment to exceptional quality.</p>
+                            <a href="#product-spad" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="{% static 'mbapp/img/hero/hero-2.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Summer Collection</h6>
+                            <h2>Fall - Winter Collections 2030</h2>
+                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                commitment to exceptional quality.</p>
+                            <a href="#product-spad" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Banner Section Begin -->
+<section class="banner spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-4">
+                <div class="banner__item">
+                    <div class="banner__item__pic">
+                        <img src="{% static 'mbapp/img/banner/banner-1.jpg' %}" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Clothing Collections 2030</h2>
+                        <a href="#product-spad">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="banner__item banner__item--middle">
+                    <div class="banner__item__pic">
+                        <img src="{% static 'mbapp/img/banner/banner-2.jpg' %}" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Accessories</h2>
+                        <a href="#product-spad">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="banner__item banner__item--last">
+                    <div class="banner__item__pic">
+                        <img src="{% static 'mbapp/img/banner/banner-3.jpg' %}" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Shoes Spring 2030</h2>
+                        <a href="#product-spad">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->
+
+<!-- Product Section Begin -->
+<section class="product spad" id="product-spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="filter__controls">
+                    <li class="active">Our Products</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row product__filter">
+
+            {% for product in products %}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix">
+                <div class="product__item">
+                    <a href="{% url 'single_product' product.id %}">
+                        <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
+
+                            {% if product.sale %}
+                            <span class="label">Sale</span>
+                            {% elif product.out_of_stock %}
+                            <span class="label">Out Of Stock</span>
+                            {% endif %}
+
+                        </div>
+                    </a>
+                    <div class="product__item__text">
+                        <h6>{{ product.name }}</h6>
+                        <a href="https://wa.me/919712384280/?text={{request.build_absolute_uri}}product/{{product.id}}" class="add-cart">Buy Now</a>
+
+                        <h5>₹{{ product.price }}</h5>
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+
+
+
+        </div>
+
+
+        <!-- Pagination -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product__pagination">
+                    {% if products.has_other_pages %}
+                    <ul class="d-flex align-items-center justify-content-center" style="list-style-type: none;">
+
+                        {% if products.has_previous %}
+                        <li><a class="px-1" href="?page={{products.previous_page_number}}"><i class="fa fa-caret-left"></i></a></li>
+                        {% else %}
+                        <li class="disabled"><a class="px-1" href="#"><i class="fa fa-caret-left"></i></a></li>
+                        {% endif %}
+
+                        {% for i in products.paginator.page_range %}
+                        {% if products.number == i %}
+                        <li><a class="px-1" href="#" class="active">{{i}}</a></li>
+                        {% else %}
+                        <li><a class="px-1" href="?page={{i}}"">{{i}}</a></li>
+                      {% endif %}
+                      {% endfor %}
+          
+                      {% if products.has_next %}
+                      <li><a class="px-1" href=" ?page={{products.next_page_number}}"><i class="fa fa-caret-right"></i></a></li>
+                        {% else %}
+                        <li class="disabled"><a class="px-1" href="#"><i class="fa fa-caret-right"></i></a></li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+<!-- Product Section End -->
+
+
+
+
+{% endblock content %}
+
+{% block search %}
+<div class="col-lg-6 col-md-6">
+    <div class="header__nav__option">
+        <a href="#" class="search-switch"><img src="{% static 'mbapp/img/icon/search.png' %}" alt=""></a>
+
+    </div>
+</div>
+{% endblock search %}
+
+{% block searchm %}
+<div class="canvas__open"> <a href="#" class="search-switch"><img src="{% static 'mbapp/img/icon/search.png' %}"
+            alt=""></a></div>
+{% endblock searchm %}
