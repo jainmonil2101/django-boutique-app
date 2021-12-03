@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+
+
+{% block meta_stuff %}
+<meta name="description" content="{{one_product.description}}">
+<meta property="og:image" content="{{one_product.image.url}}">
+
+{% endblock meta_stuff %}
+
+{% block title %}
+{{one_product.name}}
+{% endblock title %}
+
 {% block content %}
 
 
