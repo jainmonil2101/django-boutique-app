@@ -3,4 +3,10 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(Product)
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'sale', 'out_of_stock')
+    list_editable = ('sale', 'out_of_stock')
+
+
+admin.site.register(Product, ProductAdmin)
