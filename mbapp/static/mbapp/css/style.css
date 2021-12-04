@@ -411,6 +411,10 @@ ol {
 
 .header__logo a {
   display: inline-block;
+  font-family: 'RoxboroughCF-Bold';
+  font-size: 1.24rem;
+  font-weight: bold;
+  color: #6d343c;
 }
 
 .header__menu {
@@ -606,7 +610,7 @@ ol {
 }
 
 .hero__text h2 {
-  color: #111111;
+  color: #88404B;
   font-size: 48px;
   font-weight: 700;
   line-height: 58px;
@@ -3571,4 +3575,9 @@ ol {
   .categories__text:before {
     height: 250px;
   }
+}
+
+
+#product-spad{
+  margin-top: 40px;
 }

@@ -1,12 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="zxx">
-    
+
 <head>
     <meta charset="UTF-8">
     {% block meta_stuff %}
     {% endblock meta_stuff %}
-  
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="{% static 'mbapp/css/owl.carousel.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'mbapp/css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'mbapp/css/style.css' %}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 
 </head>
 
@@ -94,34 +97,19 @@
 
 
 
-        <div class="container">
+        <div class="container h-100 align-items-center justify-content-center">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="header__logo">
-                        <a href="{% url 'index' %}"><img src="{% static 'mbapp/img/logo.png' %}" alt=""></a>
+                        <a href="{% url 'index' %}">
+
+                            <!-- <img src="{% static 'mbapp/img/logo.png' %}" alt=""> -->
+                            MUSKAN BOUTIQUE
+
+                        </a>
                     </div>
                 </div>
 
-                <!-- Menu -->
-                <!-- <div class="col-lg-6 col-md-6">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
-                        </ul>
-                    </nav>
-                </div> -->
 
                 {% block search %}
                 {% endblock search %}
