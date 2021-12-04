@@ -20,17 +20,21 @@ Muskan Boutique
                                 commitment to exceptional quality.</p>
                             <a href="#product-spad" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                             <div class="hero__social">
-                                <a href="https://www.facebook.com/www.muskanboutique/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/www.muskanboutique/" target="_blank"><i
+                                        class="fa fa-facebook"></i></a>
                                 <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                                <a href="https://in.pinterest.com/muskanboutique86" target="_blank"><i class="fa fa-pinterest"></i></a>
-                                <a href="https://www.instagram.com/boutique.muskan/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <a href="https://in.pinterest.com/muskanboutique86" target="_blank"><i
+                                        class="fa fa-pinterest"></i></a>
+                                <a href="https://www.instagram.com/boutique.muskan/" target="_blank"><i
+                                        class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="{% static 'mbapp/img/hero/hero-2.png' %}">
+        <div class="hero__items set-bg" 
+        data-setbg="{% static 'mbapp/img/hero/hero-2.png' %}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
@@ -129,7 +133,8 @@ Muskan Boutique
                     </a>
                     <div class="product__item__text">
                         <h6>{{ product.name }}</h6>
-                        <a href="https://wa.me/919924674062/?text={{request.build_absolute_uri}}product/{{product.id}}" class="add-cart">Buy Now</a>
+                        <a href="https://wa.me/919924674062/?text={{request.build_absolute_uri}}product/{{product.id}}"
+                            class="add-cart">Buy Now</a>
 
                         <h5>₹{{ product.price }}</h5>
                     </div>
@@ -153,7 +158,8 @@ Muskan Boutique
                     <ul class="d-flex align-items-center justify-content-center" style="list-style-type: none;">
 
                         {% if products.has_previous %}
-                        <li><a class="px-1" href="?page={{products.previous_page_number}}"><i class="fa fa-caret-left"></i></a></li>
+                        <li><a class="px-1" href="?page={{products.previous_page_number}}"><i
+                                    class="fa fa-caret-left"></i></a></li>
                         {% else %}
                         <li class="disabled"><a class="px-1" href="#"><i class="fa fa-caret-left"></i></a></li>
                         {% endif %}
@@ -167,7 +173,8 @@ Muskan Boutique
                       {% endfor %}
           
                       {% if products.has_next %}
-                      <li><a class="px-1" href=" ?page={{products.next_page_number}}"><i class="fa fa-caret-right"></i></a></li>
+                      <li><a class=" px-1" href=" ?page={{products.next_page_number}}"><i
+                                    class="fa fa-caret-right"></i></a></li>
                         {% else %}
                         <li class="disabled"><a class="px-1" href="#"><i class="fa fa-caret-right"></i></a></li>
                         {% endif %}
