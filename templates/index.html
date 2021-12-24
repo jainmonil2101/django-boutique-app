@@ -122,11 +122,7 @@ Muskan Boutique
 
             {% for product in products %}
 
-            {% block meta_stuff %}
-            <meta name="description" content="{{product.description}}">
-            <meta property="og:image" content="{{product.image.url}}">
 
-            {% endblock meta_stuff %}
             <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix">
                 <div class="product__item">
                     <a href="{% url 'single_product' product.id %}">
@@ -142,8 +138,16 @@ Muskan Boutique
                     </a>
                     <div class="product__item__text">
                         <h6>{{ product.name }}</h6>
+                        {% if 'page' in request.build_absolute_uri %}
+
+                        <a href="https://wa.me/919924674062/?text={{request.path}}product/{{product.id}}"
+                            class="add-cart">Buy Now</a>
+
+                        {% else %}
+
                         <a href="https://wa.me/919924674062/?text={{request.build_absolute_uri}}product/{{product.id}}"
                             class="add-cart">Buy Now</a>
+                        {% endif %}
 
                         <h5>₹{{ product.price }}</h5>
                     </div>
@@ -183,7 +187,7 @@ Muskan Boutique
                       {% endfor %}
           
                       {% if products.has_next %}
-                      <li><a class=" px-1" href=" ?page={{products.next_page_number}}"><i
+                      <li><a class=" px-1" href="?page={{products.next_page_number}}"><i
                                     class="fa fa-caret-right"></i></a></li>
                         {% else %}
                         <li class="disabled"><a class="px-1" href="#"><i class="fa fa-caret-right"></i></a></li>
@@ -200,11 +204,6 @@ Muskan Boutique
 </section>
 <!-- Product Section End -->
 
-<!-- {% for i in products.paginator.page_range %}
-{% if products.number == i %}
-{{i}}
-{% endif %}
-{% endfor %} -->
 
 
 {% endblock content %}

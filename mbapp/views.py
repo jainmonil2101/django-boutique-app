@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 def index(request):
     search = request.GET.get('search') or ''
     products = Product.objects.filter(name__icontains=search).order_by('-sale')
-    paginator = Paginator(products, 4)
+    paginator = Paginator(products, 8)
     page = request.GET.get('page')
     page_obj = paginator.get_page(page)
     params = {
